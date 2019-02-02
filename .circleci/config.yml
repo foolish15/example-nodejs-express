@@ -23,8 +23,6 @@ jobs:
           name: "Build docker image and push to docker hub"
           command: |
             cp Dockerfile.production Dockerfile
-            docker build -t foolishbrand/demo-circle:${CIRCLE_SHA1} .
-            docker tag foolishbrand/demo-circle:${CIRCLE_SHA1} foolishbrand/demo-circle:latest.
-            docker push foolishbrand/demo-circle:latest .
-            docker push foolishbrand/demo-circle:${CIRCLE_SHA1}
+            docker build -t foolishbrand/demo-circle:latest .
+            docker push foolishbrand/demo-circle:latest 
       - run: echo Done
