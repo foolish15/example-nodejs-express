@@ -24,7 +24,5 @@ jobs:
           command: |
             cp Dockerfile.production Dockerfile
             docker build -t foolishbrand/demo-circle:latest .
-            docker build -t foolishbrand/demo-circle:${CIRCLE_SHA1} .
-            docker push foolishbrand/demo-circle:latest .
-            docker push foolishbrand/demo-circle:${CIRCLE_SHA1}
+            docker push foolishbrand/demo-circle:latest 
       - run: echo Done
