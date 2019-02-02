@@ -25,4 +25,16 @@ jobs:
             cp Dockerfile.production Dockerfile
             docker build -t foolishbrand/demo-circle:latest .
             docker push foolishbrand/demo-circle:latest 
+      - run:
+          name: "Call to rancuer to deploy"
+          command: |
+            docker run --rm -it \
+              -e CATTLE_ACCESS_KEY="$CATTLE_ACCESS_KEY" \
+              -e CATTLE_SECRET_KEY="$CATTLE_SECRET_KEY" \
+              -e CATTLE_URL="$CATTLE_URL" \
+              etlweather/gaucho upgrade $RANCUER_EXAMPLE_NODEJS \
+              --imageUuid 'docker:foolishbrand/demo-circle:latest' \
+              --batch_size 3 --start_first \
+              --auto_complete --timeout 600 \
+              /
       - run: echo Done
