@@ -58,7 +58,7 @@ jobs:
             docker push foolishbrand/demo-circle:latest 
   deploy:
     docker:
-      - image: docker
+      - image: circleci/node:8.11.1-stretch
     steps:
       - run:
           name: "Call to rancuer to deploy"
