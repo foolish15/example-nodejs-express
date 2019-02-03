@@ -35,6 +35,5 @@ jobs:
               etlweather/gaucho upgrade $RANCUER_EXAMPLE_NODEJS \
               --imageUuid 'docker:foolishbrand/demo-circle:latest' \
               --batch_size 3 --start_first \
-              --auto_complete --timeout 600 \
-              /
+              --auto_complete --timeout 600
       - run: echo Done
