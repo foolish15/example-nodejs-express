@@ -35,7 +35,7 @@ jobs:
       - run: npm run test
   ship:
     docker:
-      - image: docker
+      - image: circleci/node:8.11.1-stretch
     steps:
       - checkout
       - restore_cache:
